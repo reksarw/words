@@ -89,7 +89,6 @@ $app->group('/quotes', function() use ($app){
 	});
 
 	$app->post('/delete/{uid}', function(Request $request, Response $response, $args){
-		$postdata = $request->getParsedBody();
 		$uid = $args['uid'];
 
 		$sql = "SELECT uid FROM t_quotes WHERE uid = :uid AND status = 1";

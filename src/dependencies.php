@@ -29,36 +29,36 @@ $container['db'] = function ($c){
 };
 
 $container['errorHandler'] = function ($c) {
-    return function ($request, $response, $exception) use ($c) {
-        $result = [
-          'is_ok' => false,
-          'error_message' => 'Someting went wrong!',
-          'exceptions' => $exception
-        ];
-        return $response->withJson($result, 500);
-    };
+  return function ($request, $response, $exception) use ($c) {
+    $result = [
+      'is_ok' => false,
+      'error_message' => 'Someting went wrong!',
+      'exceptions' => $exception
+    ];
+    return $response->withJson($result, 500);
+  };
 };
 
 // Override the default Not Found Handler
 $container['notFoundHandler'] = function ($c) {
-    return function ($request, $response) use ($c) {
-        $result = [
-          'is_ok' => false,
-          'error_message' => 'URL not found!'
-        ];
-        return $response->withJson($result, 404);
-    };
+  return function ($request, $response) use ($c) {
+    $result = [
+      'is_ok' => false,
+      'error_message' => 'URL not found!'
+    ];
+    return $response->withJson($result, 404);
+  };
 };
 
 // Override the default Not Allowed Method handler
 $container['notAllowedHandler'] = function ($c) {
-    return function ($request, $response, $methods) use ($c) {
-        $result = [
-          'is_ok' => false,
-          'error_message' => 'Method not allowed!'
-        ];
-        return $response->withJson($result, 405);
-    };
+  return function ($request, $response, $methods) use ($c) {
+    $result = [
+      'is_ok' => false,
+      'error_message' => 'Method not allowed!'
+    ];
+    return $response->withJson($result, 405);
+  };
 };
 
 // Base URL
